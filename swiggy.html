@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiggy website</title>
+
+</head>
+<style>
+    
+/* BASIC SETTINGS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: white;
+    color: #222;
+}
+
+
+/* NAVIGATION BAR */
+
+.navbar {
+    height: 85px;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    gap: 35px;
+    background-color: #ff5200;
+    color: white;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    font-size: 28px;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    color: white;
+}
+
+
+/* SEARCH BAR */
+
+.search {
+    margin-left: auto;
+    width: 320px;
+    background-color: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 14px;
+}
+
+.search input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 13px;
+}
+
+.search span {
+    font-size: 22px;
+    color: #ff5200;
+}
+
+.profile {
+    font-size: 25px;
+    cursor: pointer;
+    color: white;
+}
+
+
+/* MAIN CONTAINER */
+
+.container {
+    width: 100%;
+    margin: auto;
+}
+
+
+/* HERO SECTION */
+
+.hero {
+    height: 350px;
+    background-color: #ff5200;
+    background-image:
+    linear-gradient(
+        to right,
+        rgba(255,82,0,0.95),
+        rgba(255,82,0,0.65)
+    ),
+    url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1400");
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+    padding: 35px 12%;
+    border-radius: 0;
+}
+
+.food-logo {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 100px;
+}
+
+.hero h1 {
+    font-size: 38px;
+    line-height: 1.3;
+}
+
+
+/* FOOD CATEGORIES */
+
+.categories {
+    margin: 40px auto;
+    width: 80%;
+    padding-bottom: 35px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.categories h3 {
+    font-size: 22px;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+
+/* CATEGORY LIST */
+
+.category-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    overflow-x: auto;
+}
+
+.category {
+    text-align: center;
+    cursor: pointer;
+    min-width: 85px;
+}
+
+.category img {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff0e8;
+    transition: 0.3s;
+}
+
+.category img:hover {
+    transform: scale(1.1);
+    border-color: #ff5200;
+}
+
+.category p {
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+
+/* RESTAURANTS SECTION */
+
+.restaurants {
+    margin: 40px auto;
+    width: 80%;
+}
+
+.restaurants h3 {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+
+/* RESTAURANT LIST */
+
+.restaurant-list {
+    display: flex;
+    gap: 22px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+}
+
+
+/* RESTAURANT CARDS */
+
+.restaurant-card {
+    min-width: 200px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 15px;
+    padding-bottom: 12px;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-5px);
+}
+
+.restaurant-card img {
+    width: 200px;
+    height: 160px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.restaurant-card h4 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.restaurant-card p {
+    font-size: 13px;
+    color: #686868;
+    margin-top: 6px;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 0 5%;
+        gap: 12px;
+    }
+
+    .location {
+        display: none;
+    }
+
+    .search {
+        width: 180px;
+    }
+
+    .hero {
+        height: 280px;
+        padding: 30px 6%;
+    }
+
+    .food-logo {
+        margin-bottom: 80px;
+    }
+
+    .hero h1 {
+        font-size: 25px;
+    }
+
+    .categories,
+    .restaurants {
+        width: 90%;
+    }
+
+    .category-list {
+        justify-content: flex-start;
+    }
+
+}
+
+
+</style>
+<body>
+    
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Swiggy - Food Delivery in Meerut</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>●</span> Swiggy
+        </div>
+
+        <div class="location">
+            <span>📍</span>
+            <p>Meerut, Uttar Pradesh</p>
+            <span>⌄</span>
+        </div>
+
+        <div class="search">
+            <input type="text"
+            placeholder="Search for restaurant and food">
+            <span>⌕</span>
+        </div>
+
+        <div class="profile">
+            👤
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN CONTAINER -->
+
+    <div class="container">
+
+
+        <!-- HERO BANNER -->
+
+        <section class="hero">
+
+            <div class="food-logo">
+                ◈ Food
+            </div>
+
+            <h1>Order Food Online in Meerut</h1>
+
+        </section>
+
+
+        <!-- FOOD CATEGORIES -->
+
+        <section class="categories">
+
+            <h3>What's on your mind?</h3>
+
+            <div class="category-list">
+
+                <div class="category">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Pizza">
+                    <p>Pizza</p>
+                </div>
+
+                <div class="category">
+                    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=200" alt="North Indian">
+                    <p>North Indian</p>
+                </div>
+
+                <div class="category">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200" alt="Cake">
+                    <p>Cakes</p>
+                </div>
+
+                <div class="category">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH4rspKcOUfaT2innxVuZ3XbcSkAtINiHPkd3RZjga-g&s=10" alt="Biryani">
+                    <p>Biryani</p>
+                </div>
+
+                <div class="category">
+                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=200" alt="Chinese">
+                    <p>Chinese</p>
+                </div>
+
+                <div class="category">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200" alt="Burger">
+                    <p>Burger</p>
+                </div>
+
+                <div class="category">
+                    <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=200" alt="Rolls">
+                    <p>Rolls</p>
+                </div>
+
+                <div class="category">
+                    <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=200" alt="Dosa">
+                    <p>Dosa</p>
+                </div>
+
+                <div class="category">
+                    <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=200" alt="Desserts">
+                    <p>Desserts</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESTAURANT SECTION -->
+
+        <section class="restaurants">
+
+            <h3>Top restaurant chains in Meerut</h3>
+
+            <div class="restaurant-list">
+
+                <div class="restaurant-card">
+
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=500" alt="Restaurant food">
+
+                    <h4>Indian Food Corner</h4>
+
+                    <p>⭐ 4.3 • 25-30 mins</p>
+
+                    <p>North Indian, Thali</p>
+
+                </div>
+
+
+                <div class="restaurant-card">
+
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500" alt="Fresh food">
+
+                    <h4>Healthy Kitchen</h4>
+
+                    <p>⭐ 4.5 • 20-25 mins</p>
+
+                    <p>Healthy Food, Salads</p>
+
+                </div>
+
+
+                <div class="restaurant-card">
+
+                    <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=500" alt="Indian curry">
+
+                    <h4>Spice Junction</h4>
+
+                    <p>⭐ 4.2 • 30 mins</p>
+
+                    <p>North Indian, Chinese</p>
+
+                </div>
+
+
+                <div class="restaurant-card">
+
+                    <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=500" alt="Dosa">
+
+                    <h4>South Indian Cafe</h4>
+
+                    <p>⭐ 4.4 • 25 mins</p>
+
+                    <p>South Indian, Dosa</p>
+
+                </div>
+
+
+                <div class="restaurant-card">
+
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500" alt="Burger">
+
+                    <h4>Burger House</h4>
+
+                    <p>⭐ 4.1 • 20 mins</p>
+
+                    <p>Burgers, Fast Food</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+</body>
+
+</html>
+
+</body>
+</html>
